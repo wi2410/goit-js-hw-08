@@ -17,3 +17,5 @@ const getTimeFromStorage = localStorage.getItem(STORAGE_KEY);
 player.on('timeupdate', throttle(onPlay, 1000));
 
 player.setCurrentTime(JSON.parse(getTimeFromStorage));
+
+// console.log(player.setCurrentTime(JSON.parse(getTimeFromStorage)));
