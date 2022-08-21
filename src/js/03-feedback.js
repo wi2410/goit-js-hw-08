@@ -9,7 +9,8 @@ const formData = {
 
 const refs = {
     form: document.querySelector('.feedback-form'),
-    
+    textarea: document.querySelector('.feedback-form textarea'),
+    input: document.querySelector('.feedback-form input'),
 }
 
 refs.form.addEventListener('submit', onFormSubmit)
@@ -29,6 +30,11 @@ function onFormInput(ev) {
 
 function onFormSubmit(ev) {
     ev.preventDefault();
+
+    if (refs.textarea.value === '' || refs.input.value === '') {
+        return alert('Всі поля мають бути заповнені!')
+    }
+    
 
     ev.currentTarget.reset();
 
