@@ -13,9 +13,14 @@ const onPlay = function({seconds}) {
 };
 
 const getTimeFromStorage = localStorage.getItem(STORAGE_KEY);
+const parsedTimeFromStorage = JSON.parse(getTimeFromStorage);
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.setCurrentTime(JSON.parse(getTimeFromStorage));
+if (parsedTimeFromStorage === null) {
+    return;
+};
 
-// console.log(player.setCurrentTime(JSON.parse(getTimeFromStorage)));
+player.setCurrentTime(parsedTimeFromStorage);
+
+// console.log(parsedTimeFromStorage);
